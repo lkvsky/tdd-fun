@@ -47,19 +47,11 @@ function SortedSetList(arr) {
 	SetList.call(this, arr);
 }
 
-function extend(subclass, superclass) {
-	function Dummy() {}
-	Dummy.prototype = superclass.prototype;
-	subclass.prototype = new Dummy();
-	subclass.prototype.constructor = subclass;
-}
-
-extend(SortedSetList, SetList);
+SortedSetList.prototype = new SetList();
 
 SortedSetList.prototype.add = function(element) {
 	SetList.prototype.add.call(this, element);
 	this.arr.sort();
 };
-
 
 
