@@ -34,15 +34,19 @@ describe("SetCollection", function() {
 	});
 
 	it("should apply the function to each element of the collection", function() {
-		setList.add('0');
-		setList.add('1');
+		setList.add(0);
+		setList.add(1);
 
 		var num = 0;
+		var answers = [];
 		setList.iterator(function(item) {
 			num++;
+			answers.push(item);
 		});
 
 		expect(num).toEqual(setList.size());
+		expect(answers[0]).toEqual(0);
+		expect(answers[1]).toEqual(1);
 	});
 
 });
